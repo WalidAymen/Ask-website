@@ -25,6 +25,8 @@ Route::get("/message/send/{id}",[MessageController::class,'sendForm']);
 Route::post("/message/send/{id}",[MessageController::class,'send']);
 Route::get('/reply/{id}', [MessageController::class, 'replyForm']);
 Route::post('/reply/{id}', [MessageController::class, 'reply']);
+Route::get('/delete/{id}', [MessageController::class, 'delete']);
+
 
 
 Route::get('/register', [AuthController::class, 'registerForm'])->middleware('guest');
@@ -38,19 +40,10 @@ Route::post('/update/{id}', [UserController::class, 'update'])->middleware('auth
 Route::get('/edit/{id}', [UserController::class, 'editForm'])->middleware('auth');
 Route::get('/allusers', [UserController::class, 'showAll']);
 Route::get('/pending/{id}', [UserController::class, 'pending']);
+
 Route::get('/search', [UserController::class, 'search']);
-
-
-
-
-
-
-
-
-
-/*
 
 
 Route::fallback(function() {
     return redirect(url('/allusers'));
-});*/
+});

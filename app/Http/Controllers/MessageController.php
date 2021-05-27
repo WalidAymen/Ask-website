@@ -61,4 +61,15 @@ class MessageController extends Controller
         else
             return redirect(url('/me'));
     }
+    public function delete($id)
+    {
+        $message=Message::findOrFail($id);
+        if (Auth::user()->id==$message->user_id&&!$message->show) {
+            $message->delete();
+            return redirect(url("/pending/$message->user_id"));
+        }
+        else
+            return redirect(url('/me'));
+
+    }
 }

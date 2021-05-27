@@ -21,6 +21,8 @@
             @if (!$message->show)
                 <h3 class="shadow-lg w-auto rounded text-danger m-2 p-3">{{$message->content}}</h3>
                 <a href="{{url('/reply/'.$message->id)}}"><button class="btn btn-outline-info ">Reply</button></a>
+                <a href="{{url('/delete/'.$message->id)}}"><button class="btn btn-outline-danger ">Delete</button></a>
+
             @endif
         @endforeach
     </div>
